@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferty - Mway Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Mway Travel" />
+                </a>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="offers.html" class="active">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+            <button class="hamburger-button">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="offers.html" class="active">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="offers-page">
+        <div class="container">
+            <h1 class="text-xl text-center">Nasze Oferty</h1>
+            <p class="text-md text-center">Znajdź idealną podróż dla siebie</p>
+
+            <div class="category-filters">
+                <button class="category-filter active" data-category="all">Wszystkie</button>
+                <button class="category-filter" data-category="flights">Loty</button>
+                <button class="category-filter" data-category="cruises">Rejsy</button>
+                <button class="category-filter" data-category="europe">Europa</button>
+                <button class="category-filter" data-category="world">Poza Europą</button>
+            </div>
+
+            <div class="filters-row">
+                <select id="price-filter" class="filter-select">
+                    <option value="">Cena</option>
+                    <option value="0-500">do 500 zł</option>
+                    <option value="500-1000">500-1000 zł</option>
+                    <option value="1000-2000">1000-2000 zł</option>
+                    <option value="2000-5000">2000-5000 zł</option>
+                    <option value="5000+">powyżej 5000 zł</option>
+                </select>
+                
+                <select id="duration-filter" class="filter-select">
+                    <option value="">Czas trwania</option>
+                    <option value="short">do 3 dni</option>
+                    <option value="medium">4-7 dni</option>
+                    <option value="long">powyżej 7 dni</option>
+                </select>
+                
+                <input type="text" id="search-filter" class="filter-search" placeholder="Szukaj destynacji...">
+            </div>
+
+            <div id="offers-container" class="offers-grid">
+                <!-- Oferty będą ładowane dynamicznie -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html">
+                        <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px;">
+                            Mway Travel
+                        </div>
+                    </a>
+                    <div class="card" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                        <div class="subscribe-heading" style="color: white;">Zapisz się do newslettera</div>
+                        <p style="color: #ccc !important;">
+                            Bądź na bieżąco z naszymi najnowszymi ofertami, wiadomościami i ekskluzywnymi promocjami na Twoją następną podróż.
+                        </p>
+                        <form>
+                            <input type="email" id="email" placeholder="Wpisz swój email" />
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Zapisz się
+                            </button>
+                        </form>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Dla klientów</h4>
+                    <ul>
+                    <li><a href="login.html">Rezerwacje</a></li>
+                    <li><a href="insurance.html">Ubezpieczenia</a></li>
+                    <li><a href="help.html">Pomoc</a></li>
+                    <li><a href="complaints.html">Reklamacje</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Usługi</h4>
+                <ul>
+                    <li><a href="offers.html">Wakacje last minute</a></li>
+                    <li><a href="offers.html">Wycieczki objazdowe</a></li>
+                    <li><a href="offers.html">Wczasy all inclusive</a></li>
+                    <li><a href="offers.html">Egzotyczne destynacje</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="mailto:info@mwaytravel.com">info@mwaytravel.com</a></li>
+                        <li><a href="tel:+48123456789">+48 123 456 789</a></li>
+                        <li>
+                            <address>
+                                Mway Travel<br />
+                                ul. Floriańska 15<br />
+                                31-019 Kraków, Polska
+                            </address>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="text-sm text-center">
+                    &copy; 2025 Mway Travel. Wszelkie prawa zastrzeżone. | 
+                    <a href="#">Polityka prywatności</a> | 
+                    <a href="#">Warunki korzystania</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        let allOffers = [];
+
+        async function loadOffers() {
+            try {
+                const response = await fetch('data/offers.json');
+                const data = await response.json();
+                allOffers = Object.values(data).flat();
+                displayOffers(allOffers);
+                setupFilters();
+            } catch (error) {
+                console.error('Błąd ładowania ofert:', error);
+            }
+        }
+
+        function displayOffers(offers) {
+            const container = document.getElementById('offers-container');
+            container.innerHTML = '';
+
+            if (offers.length === 0) {
+                container.innerHTML = '<p class="no-results">Brak ofert spełniających kryteria wyszukiwania.</p>';
+                return;
+            }
+
+            offers.forEach(offer => {
+                container.appendChild(createOfferCard(offer));
+            });
+        }
+
+        function createOfferCard(offer) {
+            const card = document.createElement('div');
+            card.className = 'offer-card';
+            
+            let details = '';
+            if (offer.type === 'flight') {
+                details = `
+                    <span><i class="fas fa-plane"></i> ${offer.airline}</span>
+                    <span><i class="fas fa-route"></i> ${offer.departure} → ${offer.destination}</span>
+                `;
+            } else if (offer.type === 'cruise') {
+                details = `
+                    <span><i class="fas fa-ship"></i> ${offer.ship}</span>
+                    <span><i class="fas fa-utensils"></i> ${offer.mealPlan}</span>
+                `;
+            } else {
+                details = `
+                    <span><i class="fas fa-hotel"></i> ${offer.hotel}</span>
+                    <span><i class="fas fa-utensils"></i> ${offer.mealPlan}</span>
+                `;
+            }
+
+            card.innerHTML = `
+                <img src="${offer.image}" alt="${offer.title}" class="offer-img">
+                <div class="offer-content">
+                    <h3>${offer.title}</h3>
+                    <p>${offer.description}</p>
+                    <div class="offer-details">
+                        <span><i class="fas fa-map-marker-alt"></i> ${offer.destination}</span>
+                        <span><i class="fas fa-clock"></i> ${offer.duration}</span>
+                        ${details}
+                    </div>
+                    <div class="offer-price">${offer.price} zł</div>
+                    <button class="btn btn-primary btn-block book-btn" data-offer-id="${offer.id}">Zarezerwuj</button>
+                </div>
+            `;
+            return card;
+        }
+
+        function setupFilters() {
+            // Filtry kategorii
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    filter.classList.add('active');
+                    applyFilters();
+                });
+            });
+
+            // Pozostałe filtry
+            document.getElementById('price-filter').addEventListener('change', applyFilters);
+            document.getElementById('duration-filter').addEventListener('change', applyFilters);
+            document.getElementById('search-filter').addEventListener('input', applyFilters);
+        }
+
+        function applyFilters() {
+            const activeCategory = document.querySelector('.category-filter.active').dataset.category;
+            const priceFilter = document.getElementById('price-filter').value;
+            const durationFilter = document.getElementById('duration-filter').value;
+            const searchFilter = document.getElementById('search-filter').value.toLowerCase();
+
+            let filteredOffers = allOffers;
+
+            // Filtrowanie po kategorii
+            if (activeCategory !== 'all') {
+                filteredOffers = filteredOffers.filter(offer => offer.type === activeCategory);
+            }
+
+            // Filtrowanie po cenie
+            if (priceFilter) {
+                filteredOffers = filteredOffers.filter(offer => {
+                    if (priceFilter === '0-500') return offer.price <= 500;
+                    if (priceFilter === '500-1000') return offer.price > 500 && offer.price <= 1000;
+                    if (priceFilter === '1000-2000') return offer.price > 1000 && offer.price <= 2000;
+                    if (priceFilter === '2000-5000') return offer.price > 2000 && offer.price <= 5000;
+                    if (priceFilter === '5000+') return offer.price > 5000;
+                    return true;
+                });
+            }
+
+            // Filtrowanie po czasie trwania
+            if (durationFilter) {
+                filteredOffers = filteredOffers.filter(offer => {
+                    const days = parseInt(offer.duration);
+                    if (durationFilter === 'short') return days <= 3;
+                    if (durationFilter === 'medium') return days > 3 && days <= 7;
+                    if (durationFilter === 'long') return days > 7;
+                    return true;
+                });
+            }
+
+            // Filtrowanie po wyszukiwaniu
+            if (searchFilter) {
+                filteredOffers = filteredOffers.filter(offer => 
+                    offer.title.toLowerCase().includes(searchFilter) ||
+                    offer.destination.toLowerCase().includes(searchFilter) ||
+                    offer.description.toLowerCase().includes(searchFilter)
+                );
+            }
+
+            displayOffers(filteredOffers);
+        }
+
+        // Obsługa rezerwacji
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('book-btn')) {
+                const offerId = e.target.dataset.offerId;
+                const offer = allOffers.find(o => o.id === offerId);
+                if (offer) {
+                    localStorage.setItem('selectedOffer', JSON.stringify(offer));
+                    window.location.href = 'booking.html';
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', loadOffers);
+    </script>
+</body>
+</html>

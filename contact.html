@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Mway Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Mway Travel" />
+                </a>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html" class="active">Kontakt</a></li>
+                    <li><a href="offers.html">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+            <button class="hamburger-button">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html" class="active">Kontakt</a></li>
+                    <li><a href="offers.html">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sekcja Kontakt -->
+    <section class="contact-section">
+        <div class="container">
+            <h1 class="text-xl text-center">Skontaktuj się z nami</h1>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Dane kontaktowe</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Adres</strong>
+                            <p>ul. Floriańska 15<br>31-019 Kraków</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Telefon</strong>
+                            <p>+48 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>info@mwaytravel.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Godziny otwarcia</strong>
+                            <p>Pon-Pt: 9:00-17:00<br>Sb: 10:00-14:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-subway"></i>
+                        <div>
+                            <strong>Dojazd</strong>
+                            <p>5 min od Rynku Głównego<br>Blisko przystanków tramwajowych</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Wyślij wiadomość</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Imię i nazwisko" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Telefon">
+                        </div>
+                        <div class="form-group">
+                            <select id="subject" required>
+                                <option value="">Wybierz temat</option>
+                                <option value="offer">Zapytanie o ofertę</option>
+                                <option value="booking">Rezerwacja</option>
+                                <option value="complaint">Reklamacja</option>
+                                <option value="other">Inne</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Wiadomość" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Wyślij wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="text-center">Znajdź nas</h2>
+            <div class="map-container">
+                <div class="map-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Biuro Mway Travel</h3>
+                    <p><strong>ul. Floriańska 15, 31-019 Kraków</strong></p>
+                    <div class="transport-info">
+                        <div class="transport-item">
+                            <i class="fas fa-subway"></i>
+                            <span>Tramwaj: przystanek "Teatr Bagatela"</span>
+                        </div>
+                        <div class="transport-item">
+                            <i class="fas fa-walking"></i>
+                            <span>5 minut od Rynku Głównego</span>
+                        </div>
+                        <div class="transport-item">
+                            <i class="fas fa-car"></i>
+                            <span>Parking podziemny "Galeria Krakowska"</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.069140782859!2d19.937774315717417!3d50.06189177942428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b1aa3e41771%3A0x61d2e7f5a9b0c1c0!2sFloria%C5%84ska%2015%2C%2031-019%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0; border-radius: 10px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark">
+        <!-- Stopka z index.html -->
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą w ciągu 24 godzin.');
+            this.reset();
+        });
+    </script>
+
+    <style>
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: start;
+        }
+
+        .map-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-info h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .map-info h3 i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .map-info p {
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .transport-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .transport-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .transport-item i {
+            color: var(--primary-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .transport-item span {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .map-wrapper {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 968px) {
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-info {
+                order: 2;
+            }
+            
+            .map-wrapper {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .map-info {
+                padding: 20px;
+            }
+            
+            .transport-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+    </style>
+</body>
+</html>

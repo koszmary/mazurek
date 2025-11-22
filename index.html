@@ -17,483 +17,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      /* Reset i podstawowe style */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Poppins', sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #f9f9f9;
-      }
-
-      .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
-      /* Typografia */
-      .text-xxl {
-        font-size: 3rem;
-        font-weight: 700;
-        line-height: 1.2;
-      }
-
-      .text-xl {
-        font-size: 2.5rem;
-        font-weight: 700;
-        line-height: 1.2;
-      }
-
-      .text-lg {
-        font-size: 1.8rem;
-        font-weight: 600;
-      }
-
-      .text-md {
-        font-size: 1.2rem;
-      }
-
-      .text-sm {
-        font-size: 0.9rem;
-      }
-
-      .text-center {
-        text-align: center;
-      }
-
-      .text-dark {
-        color: #333;
-      }
-
-      /* Kolory */
-      .bg-primary {
-        background-color: #1e5799;
-        color: white;
-      }
-
-      .bg-dark {
-        background-color: #1e3c72;
-        color: white;
-      }
-
-      .bg-light {
-        background-color: #f0f7ff;
-      }
-
-      /* Przyciski */
-      .btn {
-        display: inline-block;
-        padding: 12px 24px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-        text-align: center;
-      }
-
-      .btn-primary {
-        background-color: #ffcc00;
-        color: #333;
-      }
-
-      .btn-primary:hover {
-        background-color: #ffd84d;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .btn-dark {
-        background-color: #1e5799;
-        color: white;
-      }
-
-      .btn-dark:hover {
-        background-color: #2a6dc5;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .btn-light {
-        background-color: white;
-        color: #333;
-        border: 2px solid #ddd;
-      }
-
-      .btn-light:hover {
-        background-color: #f5f5f5;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .btn-block {
-        display: block;
-        width: 100%;
-      }
-
-      /* Nawigacja */
-      .navbar {
-        background-color: white;
-        padding: 20px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .navbar .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo img {
-        height: 40px;
-      }
-
-      .main-menu ul {
-        display: flex;
-        list-style: none;
-      }
-
-      .main-menu li {
-        margin-left: 30px;
-      }
-
-      .main-menu a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-
-      .main-menu a:hover {
-        color: #1e5799;
-      }
-
-      .hamburger-button {
-        display: none;
-        flex-direction: column;
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-
-      .hamburger-line {
-        width: 25px;
-        height: 3px;
-        background-color: #333;
-        margin: 3px 0;
-        transition: 0.3s;
-      }
-
-      .mobile-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .mobile-menu.active {
-        display: block;
-      }
-
-      .mobile-menu ul {
-        list-style: none;
-        padding: 20px;
-      }
-
-      .mobile-menu li {
-        margin-bottom: 15px;
-      }
-
-      .mobile-menu a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        display: block;
-        padding: 10px 0;
-      }
-
-      /* Sekcja Hero */
-      .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                    url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        padding: 120px 0;
-        text-align: center;
-      }
-
-      .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .hero-heading {
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
-
-      .hero-text {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-      }
-
-      /* Oferty */
-      .offers {
-        padding: 80px 0;
-      }
-
-      .offers-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-      }
-
-      .offer-card {
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
-
-      .offer-card:hover {
-        transform: translateY(-10px);
-      }
-
-      .offer-img {
-        height: 200px;
-        width: 100%;
-        object-fit: cover;
-      }
-
-      .offer-content {
-        padding: 20px;
-      }
-
-      .offer-content h3 {
-        font-size: 22px;
-        margin-bottom: 10px;
-        color: #1e5799;
-      }
-
-      .offer-content p {
-        color: #666;
-        margin-bottom: 15px;
-      }
-
-      .offer-price {
-        font-size: 24px;
-        font-weight: 700;
-        color: #ff6600;
-        margin-bottom: 15px;
-      }
-
-      .offer-details {
-        display: flex;
-        justify-content: space-between;
-        color: #888;
-        font-size: 14px;
-        margin-bottom: 15px;
-      }
-
-      /* Opinie */
-      .testimonials {
-        padding: 80px 0;
-      }
-
-      .testimonials-heading {
-        text-align: center;
-        margin-bottom: 50px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-
-      .card {
-        background: white;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      }
-
-      .card p:first-child {
-        font-style: italic;
-        margin-bottom: 20px;
-      }
-
-      .card p:nth-child(2) {
-        font-weight: 600;
-        margin-bottom: 5px;
-      }
-
-      .card p:last-child {
-        color: #888;
-        font-size: 0.9rem;
-      }
-
-      /* Stopka */
-      .footer {
-        padding: 60px 0 20px;
-      }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 40px;
-        margin-bottom: 40px;
-      }
-
-      .footer img {
-        height: 40px;
-        margin-bottom: 20px;
-      }
-
-      .footer h4 {
-        margin-bottom: 20px;
-        font-size: 1.2rem;
-      }
-
-      .footer ul {
-        list-style: none;
-      }
-
-      .footer li {
-        margin-bottom: 10px;
-      }
-
-      .footer a {
-        color: #ccc;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer a:hover {
-        color: #ffcc00;
-      }
-
-      .footer address {
-        font-style: normal;
-        color: #ccc;
-        line-height: 1.6;
-      }
-
-      .subscribe-heading {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        color: white;
-      }
-
-      .footer form {
-        margin-top: 15px;
-      }
-
-      .footer input {
-        width: 100%;
-        padding: 12px;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 20px;
-      }
-
-      .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s;
-      }
-
-      .social-links a:hover {
-        background: #ffcc00;
-        color: #333;
-        transform: translateY(-3px);
-      }
-
-      .footer-bottom {
-        text-align: center;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      /* Responsywność */
-      @media (max-width: 768px) {
-        .text-xxl {
-          font-size: 2.2rem;
-        }
-
-        .main-menu {
-          display: none;
-        }
-
-        .hamburger-button {
-          display: flex;
-        }
-
-        .hero {
-          padding: 80px 0;
-        }
-
-        .hero-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .hero-buttons .btn {
-          width: 100%;
-          max-width: 250px;
-          margin-bottom: 10px;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <!-- Navbar -->
@@ -501,10 +26,7 @@
       <div class="container">
         <div class="logo">
           <a href="index.html">
-            <div style="font-size: 24px; font-weight: 700; color: #1e5799;">
-              <i class="fas fa-plane" style="color: #ffcc00; margin-right: 8px;"></i>
-              Mway Travel
-            </div>
+            <img src="images/logo.png" alt="Mway Travel" />
           </a>
         </div>
 
@@ -521,6 +43,11 @@
             </li>
             <li>
               <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <a href="login.html" class="login-btn">
+                <i class="fas fa-user"></i> Zaloguj się
+              </a>
             </li>
           </ul>
         </div>
@@ -544,6 +71,11 @@
             </li>
             <li>
               <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <a href="login.html" class="login-btn">
+                <i class="fas fa-user"></i> Zaloguj się
+              </a>
             </li>
           </ul>
         </div>
@@ -653,7 +185,7 @@
 
           <div class="card">
             <p>
-              "Egipt z Mway Travel to była podróż życia. Przewodnik był niezwykle kompetentny, a program wycieczki idealnie zbalansowany między zwiedzaniem a odpoczynkiem."
+              "Egipt z Mway Travel to była podróż życia. Przewodnik był niezwykle kompetentny, a program wycieczki idealnie zbalansowany między zwiedzaniem aa odpoczynkiem."
             </p>
             <p>Maria Wiśniewska</p>
             <p>Entuzjastka historii</p>
@@ -669,13 +201,12 @@
           <div>
             <a href="index.html">
               <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px;">
-                <i class="fas fa-plane" style="color: #ffcc00; margin-right: 8px;"></i>
                 Mway Travel
               </div>
             </a>
             <div class="card" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
-              <div class="subscribe-heading text-dark">Zapisz się do newslettera</div>
-              <p class="text-dark" style="color: #ccc !important;">
+              <div class="subscribe-heading" style="color: white;">Zapisz się do newslettera</div>
+              <p style="color: #ccc !important;">
                 Bądź na bieżąco z naszymi najnowszymi ofertami, wiadomościami i ekskluzywnymi promocjami na Twoją następną podróż.
               </p>
               <form>
@@ -693,21 +224,21 @@
             </div>
           </div>
           <div>
-            <h4>Nasze kierunki</h4>
+            <h4>Dla klientów</h4>
             <ul>
-              <li><a href="#">Grecja</a></li>
-              <li><a href="#">Włochy</a></li>
-              <li><a href="#">Hiszpania</a></li>
-              <li><a href="#">Egipt</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Usługi</h4>
-            <ul>
-              <li><a href="#">Wakacje last minute</a></li>
-              <li><a href="#">Wycieczki objazdowe</a></li>
-              <li><a href="#">Wczasy all inclusive</a></li>
-              <li><a href="#">Egzotyczne destynacje</a></li>
+                    <li><a href="login.html">Rezerwacje</a></li>
+                    <li><a href="insurance.html">Ubezpieczenia</a></li>
+                    <li><a href="help.html">Pomoc</a></li>
+                    <li><a href="complaints.html">Reklamacje</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Usługi</h4>
+                <ul>
+                    <li><a href="offers.html">Wakacje last minute</a></li>
+                    <li><a href="offers.html">Wycieczki objazdowe</a></li>
+                    <li><a href="offers.html">Wczasy all inclusive</a></li>
+                    <li><a href="offers.html">Egzotyczne destynacje</a></li>
             </ul>
           </div>
           <div>
@@ -717,9 +248,11 @@
               <li><a href="tel:+48123456789">+48 123 456 789</a></li>
               <li>
                 <address>
-                  Mway Travel<br />
-                  ul. Podróżnicza 123<br />
-                  Warszawa, Polska
+                            <address>
+                                Mway Travel<br />
+                                ul. Floriańska 15<br />
+                                31-019 Kraków, Polska
+                            </address>
                 </address>
               </li>
             </ul>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerwacja - Mway Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Mway Travel" />
+                </a>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="offers.html">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+            <button class="hamburger-button">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="offers.html">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-summary" id="booking-summary">
+                    <!-- Podsumowanie oferty będzie ładowane dynamicznie -->
+                </div>
+
+                <div class="booking-form-container">
+                    <h1 class="text-center">Formularz rezerwacji</h1>
+                    
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-section">
+                            <h3><i class="fas fa-user"></i> Dane osobowe</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Imię *</label>
+                                    <input type="text" id="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Nazwisko *</label>
+                                    <input type="text" id="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefon *</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pesel">PESEL *</label>
+                                    <input type="text" id="pesel" required pattern="[0-9]{11}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthDate">Data urodzenia *</label>
+                                    <input type="date" id="birthDate" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-passport"></i> Dokument podróży</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="documentType">Typ dokumentu *</label>
+                                    <select id="documentType" required>
+                                        <option value="">Wybierz</option>
+                                        <option value="idCard">Dowód osobisty</option>
+                                        <option value="passport">Paszport</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="documentNumber">Numer dokumentu *</label>
+                                    <input type="text" id="documentNumber" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="documentExpiry">Data ważności *</label>
+                                    <input type="date" id="documentExpiry" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-users"></i> Dodatkowe osoby</h3>
+                            <div id="additionalPersons">
+                                <!-- Dodatkowe osoby będą dodawane dynamicznie -->
+                            </div>
+                            <button type="button" id="addPerson" class="btn btn-light">
+                                <i class="fas fa-plus"></i> Dodaj osobę
+                            </button>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-credit-card"></i> Płatność</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="paymentMethod">Sposób płatności *</label>
+                                    <select id="paymentMethod" required>
+                                        <option value="">Wybierz</option>
+                                        <option value="transfer">Przelew bankowy</option>
+                                        <option value="card">Karta płatnicza</option>
+                                        <option value="blik">BLIK</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="terms" required>
+                                    Akceptuję <a href="#">regulamin</a> i <a href="#">politykę prywatności</a> *
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="booking-total">
+                            <h3>Podsumowanie płatności</h3>
+                            <div class="total-line">
+                                <span>Cena oferty:</span>
+                                <span id="basePrice">0 zł</span>
+                            </div>
+                            <div class="total-line">
+                                <span>Dodatkowe osoby:</span>
+                                <span id="additionalPrice">0 zł</span>
+                            </div>
+                            <div class="total-line total">
+                                <span><strong>Razem do zapłaty:</strong></span>
+                                <span><strong id="totalPrice">0 zł</strong></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block btn-large">
+                            <i class="fas fa-lock"></i> Złóż rezerwację
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html">
+                        <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px;">
+                            Mway Travel
+                        </div>
+                    </a>
+                    <div class="card" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                        <div class="subscribe-heading" style="color: white;">Zapisz się do newslettera</div>
+                        <p style="color: #ccc !important;">
+                            Bądź na bieżąco z naszymi najnowszymi ofertami, wiadomościami i ekskluzywnymi promocjami na Twoją następną podróż.
+                        </p>
+                        <form>
+                            <input type="email" id="email" placeholder="Wpisz swój email" />
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Zapisz się
+                            </button>
+                        </form>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Dla klientów</h4>
+                    <ul>
+                    <li><a href="login.html">Rezerwacje</a></li>
+                    <li><a href="insurance.html">Ubezpieczenia</a></li>
+                    <li><a href="help.html">Pomoc</a></li>
+                    <li><a href="complaints.html">Reklamacje</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Usługi</h4>
+                <ul>
+                    <li><a href="offers.html">Wakacje last minute</a></li>
+                    <li><a href="offers.html">Wycieczki objazdowe</a></li>
+                    <li><a href="offers.html">Wczasy all inclusive</a></li>
+                    <li><a href="offers.html">Egzotyczne destynacje</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="mailto:info@mwaytravel.com">info@mwaytravel.com</a></li>
+                        <li><a href="tel:+48123456789">+48 123 456 789</a></li>
+                        <li>
+                            <address>
+                                Mway Travel<br />
+                                ul. Floriańska 15<br />
+                                31-019 Kraków, Polska
+                            </address>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="text-sm text-center">
+                    &copy; 2025 Mway Travel. Wszelkie prawa zastrzeżone. | 
+                    <a href="#">Polityka prywatności</a> | 
+                    <a href="#">Warunki korzystania</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        let selectedOffer = null;
+        let additionalPersons = 0;
+        const additionalPersonPrice = 0.8; // 80% ceny bazowej za dodatkową osobę
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pobierz wybraną ofertę z localStorage
+            const offerData = localStorage.getItem('selectedOffer');
+            if (offerData) {
+                selectedOffer = JSON.parse(offerData);
+                displayOfferSummary();
+                updatePrices();
+            } else {
+                window.location.href = 'offers.html';
+            }
+
+            // Obsługa dodawania osób
+            document.getElementById('addPerson').addEventListener('click', function() {
+                addPersonForm();
+            });
+
+            // Obsługa formularza rezerwacji
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                processBooking();
+            });
+        });
+
+        function displayOfferSummary() {
+            const summary = document.getElementById('booking-summary');
+            summary.innerHTML = `
+                <div class="offer-summary-card">
+                    <img src="${selectedOffer.image}" alt="${selectedOffer.title}">
+                    <div class="offer-summary-content">
+                        <h3>${selectedOffer.title}</h3>
+                        <p>${selectedOffer.description}</p>
+                        <div class="offer-details">
+                            <span><i class="fas fa-map-marker-alt"></i> ${selectedOffer.destination}</span>
+                            <span><i class="fas fa-clock"></i> ${selectedOffer.duration}</span>
+                            ${selectedOffer.type === 'flight' ? `<span><i class="fas fa-plane"></i> ${selectedOffer.airline}</span>` : ''}
+                            ${selectedOffer.hotel ? `<span><i class="fas fa-hotel"></i> ${selectedOffer.hotel}</span>` : ''}
+                        </div>
+                        <div class="base-price">Cena bazowa: ${selectedOffer.price} zł</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addPersonForm() {
+            additionalPersons++;
+            const container = document.getElementById('additionalPersons');
+            const personId = `person-${additionalPersons}`;
+            
+            const personForm = document.createElement('div');
+            personForm.className = 'additional-person';
+            personForm.id = personId;
+            personForm.innerHTML = `
+                <h4>Osoba ${additionalPersons}</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="${personId}-firstName">Imię *</label>
+                        <input type="text" id="${personId}-firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="${personId}-lastName">Nazwisko *</label>
+                        <input type="text" id="${personId}-lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="${personId}-pesel">PESEL *</label>
+                        <input type="text" id="${personId}-pesel" required pattern="[0-9]{11}">
+                    </div>
+                    <div class="form-group">
+                        <label for="${personId}-birthDate">Data urodzenia *</label>
+                        <input type="date" id="${personId}-birthDate" required>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-light btn-sm remove-person" data-person="${personId}">
+                    <i class="fas fa-times"></i> Usuń
+                </button>
+            `;
+            
+            container.appendChild(personForm);
+            
+            // Obsługa usuwania osoby
+            personForm.querySelector('.remove-person').addEventListener('click', function() {
+                removePerson(personId);
+            });
+            
+            updatePrices();
+        }
+
+        function removePerson(personId) {
+            const personElement = document.getElementById(personId);
+            if (personElement) {
+                personElement.remove();
+                additionalPersons--;
+                updatePrices();
+            }
+        }
+
+        function updatePrices() {
+            const basePrice = selectedOffer.price;
+            const additionalPrice = basePrice * additionalPersons * additionalPersonPrice;
+            const totalPrice = basePrice + additionalPrice;
+
+            document.getElementById('basePrice').textContent = basePrice + ' zł';
+            document.getElementById('additionalPrice').textContent = additionalPrice.toFixed(0) + ' zł';
+            document.getElementById('totalPrice').textContent = totalPrice.toFixed(0) + ' zł';
+        }
+
+        function processBooking() {
+            // Tutaj w rzeczywistej aplikacji byłoby połączenie z backendem
+            const bookingData = {
+                offer: selectedOffer,
+                mainPerson: {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    pesel: document.getElementById('pesel').value,
+                    birthDate: document.getElementById('birthDate').value,
+                    documentType: document.getElementById('documentType').value,
+                    documentNumber: document.getElementById('documentNumber').value,
+                    documentExpiry: document.getElementById('documentExpiry').value
+                },
+                additionalPersons: additionalPersons,
+                paymentMethod: document.getElementById('paymentMethod').value,
+                totalPrice: document.getElementById('totalPrice').textContent
+            };
+
+            // Symulacja pomyślnej rezerwacji
+            alert('Rezerwacja złożona pomyślnie! Skontaktujemy się z Tobą w ciągu 24 godzin w celu potwierdzenia.');
+            localStorage.removeItem('selectedOffer');
+            window.location.href = 'offers.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reklamacje - Mway Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Nagłówek -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Mway Travel" />
+                </a>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="offers.html">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+            <button class="hamburger-button">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="offers.html">Oferty</a></li>
+                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sekcja główna -->
+    <section class="contact-section">
+        <div class="container">
+            <h1 class="text-xl text-center">Złóż reklamację</h1>
+            <p class="text-center text-md" style="margin-bottom: 40px; color: #666;">
+                Jesteśmy tutaj, aby rozwiązać każdą trudność
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Procedura reklamacyjna</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email reklamacyjny</strong>
+                            <p>reklamacje@mwaytravel.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Telefon</strong>
+                            <p>+48 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Termin rozpatrzenia</strong>
+                            <p>30 dni od otrzymania reklamacji</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-file-alt"></i>
+                        <div>
+                            <strong>Wymagane dokumenty</strong>
+                            <p>Numer rezerwacji, opis problemu, dowody</p>
+                        </div>
+                    </div>
+
+                    <div class="complaint-steps">
+                        <h3>Jak przebiega proces reklamacji?</h3>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Złożenie reklamacji</h4>
+                                <p>Wypełnij formularz lub wyślij email</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Potwierdzenie</h4>
+                                <p>Otrzymasz potwierdzenie przyjęcia reklamacji</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Rozpatrzenie</h4>
+                                <p>Analizujemy Twoją sprawę (max 30 dni)</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Odpowiedź</h4>
+                                <p>Otrzymujesz pisemną odpowiedź z rozwiązaniem</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Formularz reklamacyjny</h2>
+                    <form id="complaintForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Imię i nazwisko" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Telefon" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Numer rezerwacji" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Rodzaj reklamacji</option>
+                                <option value="hotel">Hotel</option>
+                                <option value="transport">Transport</option>
+                                <option value="service">Obsługa</option>
+                                <option value="other">Inne</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Opisz problem szczegółowo..." rows="6" required></textarea>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="regulamin" required>
+                            <label for="regulamin">Akceptuję regulamin i politykę prywatności</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Wyślij reklamację</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html">
+                        <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px;">
+                            Mway Travel
+                        </div>
+                    </a>
+                    <div class="card" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                        <div class="subscribe-heading" style="color: white;">Zapisz się do newslettera</div>
+                        <p style="color: #ccc !important;">
+                            Bądź na bieżąco z naszymi najnowszymi ofertami, wiadomościami i ekskluzywnymi promocjami na Twoją następną podróż.
+                        </p>
+                        <form>
+                            <input type="email" id="newsletter-email" placeholder="Wpisz swój email" />
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Zapisz się
+                            </button>
+                        </form>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Dla klientów</h4>
+                    <ul>
+                        <li><a href="login.html">Rezerwacje</a></li>
+                        <li><a href="insurance.html">Ubezpieczenia</a></li>
+                        <li><a href="help.html">Pomoc</a></li>
+                        <li><a href="complaints.html" class="active">Reklamacje</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Usługi</h4>
+                    <ul>
+                        <li><a href="offers.html">Wakacje last minute</a></li>
+                        <li><a href="offers.html">Wycieczki objazdowe</a></li>
+                        <li><a href="offers.html">Wczasy all inclusive</a></li>
+                        <li><a href="offers.html">Egzotyczne destynacje</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="mailto:info@mwaytravel.com">info@mwaytravel.com</a></li>
+                        <li><a href="tel:+48123456789">+48 123 456 789</a></li>
+                        <li>
+                            <address>
+                                Mway Travel<br />
+                                ul. Floriańska 15<br />
+                                31-019 Kraków, Polska
+                            </address>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="text-sm text-center">
+                    &copy; 2025 Mway Travel. Wszelkie prawa zastrzeżone. | 
+                    <a href="privacy.html">Polityka prywatności</a> | 
+                    <a href="terms.html">Warunki korzystania</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Dziękujemy za złożenie reklamacji. Skontaktujemy się z Tobą w ciągu 24 godzin.');
+            this.reset();
+        });
+    </script>
+    
+    <style>
+        .complaint-steps {
+            margin-top: 30px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin: 0 0 5px 0;
+            color: var(--dark-color);
+        }
+
+        .step-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>
