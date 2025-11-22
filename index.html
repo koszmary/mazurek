@@ -21,66 +21,90 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="images/logo.png" alt="Mway Travel" />
-          </a>
-        </div>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Mway Travel" />
+      </a>
+    </div>
 
-        <div class="main-menu">
-          <ul>
-            <li>
-              <a href="index.html">Strona Główna</a>
-            </li>
-            <li>
-              <a href="about.html">O Nas</a>
-            </li>
-            <li>
-              <a href="contact.html">Kontakt</a>
-            </li>
-            <li>
-              <a href="offers.html">Oferty</a>
-            </li>
-            <li>
-              <a href="login.html" class="login-btn">
-                <i class="fas fa-user"></i> Zaloguj się
+    <div class="main-menu">
+      <ul>
+        <li>
+          <a href="index.html">Strona Główna</a>
+        </li>
+        <li>
+          <a href="about.html">O Nas</a>
+        </li>
+        <li>
+          <a href="contact.html">Kontakt</a>
+        </li>
+        <li>
+          <a href="offers.html">Oferty</a>
+        </li>
+        <li>
+          <!-- DYNAMICZNY PRZYCISK LOGOWANIA -->
+          <div id="authSection" style="display: flex; align-items: center;">
+            <a href="login.html" class="login-btn" id="loginBtn">
+              <i class="fas fa-user"></i> Zaloguj się
+            </a>
+            <div class="user-menu" id="userMenu" style="display: none; gap: 10px; align-items: center;">
+              <a href="dashboard.html" class="account-btn">
+                <i class="fas fa-user-circle"></i> Moje Konto
               </a>
-            </li>
-          </ul>
-        </div>
+              <button onclick="logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-        <!-- Hamburger Button -->
-        <button class="hamburger-button">
-          <div class="hamburger-line"></div>
-          <div class="hamburger-line"></div>
-          <div class="hamburger-line"></div>
-        </button>
-        <div class="mobile-menu">
-          <ul>
-            <li>
-              <a href="index.html">Strona Główna</a>
-            </li>
-            <li>
-              <a href="about.html">O Nas</a>
-            </li>
-            <li>
-              <a href="contact.html">Kontakt</a>
-            </li>
-            <li>
-              <a href="offers.html">Oferty</a>
-            </li>
-            <li>
-              <a href="login.html" class="login-btn">
-                <i class="fas fa-user"></i> Zaloguj się
+    <!-- Hamburger Button -->
+    <button class="hamburger-button">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul>
+        <li>
+          <a href="index.html">Strona Główna</a>
+        </li>
+        <li>
+          <a href="about.html">O Nas</a>
+        </li>
+        <li>
+          <a href="contact.html">Kontakt</a>
+        </li>
+        <li>
+          <a href="offers.html">Oferty</a>
+        </li>
+        <li>
+          <!-- DYNAMICZNY PRZYCISK DLA MOBILE -->
+          <div id="mobileAuthSection">
+            <a href="login.html" class="login-btn" id="mobileLoginBtn">
+              <i class="fas fa-user"></i> Zaloguj się
+            </a>
+            <div class="user-menu" id="mobileUserMenu" style="display: none; flex-direction: column; gap: 10px;">
+              <a href="dashboard.html" class="account-btn">
+                <i class="fas fa-user-circle"></i> Moje Konto
               </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+              <button onclick="logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Wyloguj
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -93,72 +117,78 @@
             Znajdź idealne wakacje w atrakcyjnych cenach. Tysiące ofert last minute i wycieczek objazdowych.
           </p>
           <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">Odkryj Grecję</a>
-            <a href="#" class="btn btn-dark">Zwiedź Włochy</a>
-            <a href="#" class="btn btn-light">Eksploruj Hiszpanię</a>
+            <a href="offers.html" class="btn btn-primary">Odkryj Grecję</a>
+            <a href="offers.html" class="btn btn-dark">Zwiedź Włochy</a>
+            <a href="offers.html" class="btn btn-light">Eksploruj Hiszpanię</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Oferty -->
-    <section class="offers">
-      <div class="container">
+<!-- Oferty -->
+<section class="offers">
+    <div class="container">
         <h2 class="text-xl text-center text-dark">Nasze najpopularniejsze oferty</h2>
         <p class="text-md text-center" style="margin-top: 15px; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">
-          Sprawdź nasze najlepiej oceniane wycieczki i wakacje last minute
+            Sprawdź nasze najlepiej oceniane wycieczki i wakacje last minute
         </p>
         <div class="offers-grid">
-          <!-- Oferta 1 -->
-          <div class="offer-card">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tropical Paradise" class="offer-img">
-            <div class="offer-content">
-              <h3>Tropical Paradise - Bali</h3>
-              <p>7 dni w raju na ziemi z all inclusive i wycieczkami po wyspie</p>
-              <div class="offer-details">
-                <span><i class="fas fa-calendar"></i> 7 dni</span>
-                <span><i class="fas fa-user"></i> 2 osoby</span>
-                <span><i class="fas fa-star"></i> 4.8</span>
-              </div>
-              <div class="offer-price">2 499 zł</div>
-              <a href="#" class="btn btn-primary">Zarezerwuj</a>
+            <!-- Oferta 1 -->
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tropical Paradise" class="offer-img">
+                <div class="offer-content">
+                    <h3>Tropical Paradise - Bali</h3>
+                    <p>7 dni w raju na ziemi z all inclusive i wycieczkami po wyspie</p>
+                    <div class="offer-details">
+                        <span><i class="fas fa-calendar"></i> 7 dni</span>
+                        <span><i class="fas fa-user"></i> 2 osoby</span>
+                        <span><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                    <div class="offer-price">2 499 zł</div>
+                    <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
+                </div>
             </div>
-          </div>
-          
-          <!-- Oferta 2 -->
-          <div class="offer-card">
-            <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Greek Islands" class="offer-img">
-            <div class="offer-content">
-              <h3>Wyspy Greckie - rejs</h3>
-              <p>10-dniowy rejs po najpiękniejszych greckich wyspach z pełnym wyżywieniem</p>
-              <div class="offer-details">
-                <span><i class="fas fa-calendar"></i> 10 dni</span>
-                <span><i class="fas fa-user"></i> 2 osoby</span>
-                <span><i class="fas fa-star"></i> 4.9</span>
-              </div>
-              <div class="offer-price">3 199 zł</div>
-              <a href="#" class="btn btn-primary">Zarezerwuj</a>
+            
+            <!-- Oferta 2 -->
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Greek Islands" class="offer-img">
+                <div class="offer-content">
+                    <h3>Wyspy Greckie - rejs</h3>
+                    <p>10-dniowy rejs po najpiękniejszych greckich wyspach z pełnym wyżywieniem</p>
+                    <div class="offer-details">
+                        <span><i class="fas fa-calendar"></i> 10 dni</span>
+                        <span><i class="fas fa-user"></i> 2 osoby</span>
+                        <span><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                    <div class="offer-price">3 199 zł</div>
+                    <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
+                </div>
             </div>
-          </div>
-          
-          <!-- Oferta 3 -->
-          <div class="offer-card">
-            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Egypt Adventure" class="offer-img">
-            <div class="offer-content">
-              <h3>Egipt - przygoda z historią</h3>
-              <p>8 dni z przewodnikiem po najsłynniejszych zabytkach starożytnego Egiptu</p>
-              <div class="offer-details">
-                <span><i class="fas fa-calendar"></i> 8 dni</span>
-                <span><i class="fas fa-user"></i> 2 osoby</span>
-                <span><i class="fas fa-star"></i> 4.7</span>
-              </div>
-              <div class="offer-price">2 899 zł</div>
-              <a href="#" class="btn btn-primary">Zarezerwuj</a>
+            
+            <!-- Oferta 3 -->
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Egypt Adventure" class="offer-img">
+                <div class="offer-content">
+                    <h3>Egipt - przygoda z historią</h3>
+                    <p>8 dni z przewodnikiem po najsłynniejszych zabytkach starożytnego Egiptu</p>
+                    <div class="offer-details">
+                        <span><i class="fas fa-calendar"></i> 8 dni</span>
+                        <span><i class="fas fa-user"></i> 2 osoby</span>
+                        <span><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                    <div class="offer-price">2 899 zł</div>
+                    <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+        
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="offers.html" class="btn btn-dark btn-large">
+                Zobacz wszystkie oferty <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- Testimonials -->
     <section class="testimonials bg-primary">
@@ -268,25 +298,6 @@
       </div>
     </footer>
 
-    <script>
-      // Mobile menu toggle
-      document.addEventListener('DOMContentLoaded', function() {
-        const hamburgerButton = document.querySelector('.hamburger-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        hamburgerButton.addEventListener('click', function() {
-          mobileMenu.classList.toggle('active');
-        });
-        
-        // Newsletter form submission
-        const newsletterForm = document.querySelector('.footer form');
-        newsletterForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const email = document.getElementById('email').value;
-          alert(`Dziękujemy za zapisanie się do newslettera! Wiadomość potwierdzająca została wysłana na adres: ${email}`);
-          newsletterForm.reset();
-        });
-      });
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

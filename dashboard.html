@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Konto - Mway Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="Mway Travel" />
+          </a>
+        </div>
+
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Strona Główna</a>
+            </li>
+            <li>
+              <a href="about.html">O Nas</a>
+            </li>
+            <li>
+              <a href="contact.html">Kontakt</a>
+            </li>
+            <li>
+              <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <div id="authSection" style="display: flex; align-items: center;">
+                <a href="login.html" class="login-btn" id="loginBtn">
+                  <i class="fas fa-user"></i> Zaloguj się
+                </a>
+                <div class="user-menu" id="userMenu" style="display: none; gap: 10px; align-items: center;">
+                  <a href="dashboard.html" class="account-btn">
+                    <i class="fas fa-user-circle"></i> Moje Konto
+                  </a>
+                  <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger-button">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </button>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+          <ul>
+            <li>
+              <a href="index.html">Strona Główna</a>
+            </li>
+            <li>
+              <a href="about.html">O Nas</a>
+            </li>
+            <li>
+              <a href="contact.html">Kontakt</a>
+            </li>
+            <li>
+              <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <div id="mobileAuthSection">
+                <a href="login.html" class="login-btn" id="mobileLoginBtn">
+                  <i class="fas fa-user"></i> Zaloguj się
+                </a>
+                <div class="user-menu" id="mobileUserMenu" style="display: none; flex-direction: column; gap: 10px;">
+                  <a href="dashboard.html" class="account-btn">
+                    <i class="fas fa-user-circle"></i> Moje Konto
+                  </a>
+                  <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Wyloguj
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-section" style="padding: 80px 0; min-height: 70vh;">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1 class="text-xl">Witaj w panelu klienta!</h1>
+                <p>Zarządzaj swoimi rezerwacjami i ustawieniami konta</p>
+            </div>
+
+            <div class="dashboard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                <!-- Karta Rezerwacje -->
+                <div class="dashboard-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="background: #007bff; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-suitcase"></i>
+                        </div>
+                        <h3 style="margin: 0; color: #333;">Twoje Rezerwacje</h3>
+                    </div>
+                    <p style="color: #666; margin-bottom: 20px;">Brak aktywnych rezerwacji</p>
+                    <a href="offers.html" class="btn btn-primary" style="width: 100%; text-align: center;">Znajdź ofertę</a>
+                </div>
+
+                <!-- Karta Newsletter -->
+                <div class="dashboard-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="background: #28a745; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 style="margin: 0; color: #333;">Newsletter</h3>
+                    </div>
+                    <p style="color: #666; margin-bottom: 10px;">Status: <span id="newsletterStatus" style="font-weight: bold;">Sprawdzam...</span></p>
+                    <button onclick="toggleNewsletter()" class="btn" id="newsletterBtn" style="width: 100%; background: #6c757d; color: white;">
+                        Sprawdź status
+                    </button>
+                </div>
+
+                <!-- Karta Profil -->
+                <div class="dashboard-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="background: #ffc107; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h3 style="margin: 0; color: #333;">Twoje Dane</h3>
+                    </div>
+                    <div style="color: #666;">
+                        <p><strong>Email:</strong> <span id="userEmail">Ładowanie...</span></p>
+                        <p><strong>Data dołączenia:</strong> <span id="joinDate">-</span></p>
+                    </div>
+                    <button class="btn btn-light" style="width: 100%; margin-top: 15px;">Edytuj profil</button>
+                </div>
+            </div>
+
+            <!-- Historia aktywności -->
+            <div class="activity-section" style="margin-top: 50px;">
+                <h3 style="color: #333; margin-bottom: 20px;">Ostatnia aktywność</h3>
+                <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <p style="color: #666; text-align: center;">Brak ostatniej aktywności</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html">
+              <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px;">
+                Mway Travel
+              </div>
+            </a>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div>
+            <h4>Dla klientów</h4>
+            <ul>
+              <li><a href="login.html">Rezerwacje</a></li>
+              <li><a href="insurance.html">Ubezpieczenia</a></li>
+              <li><a href="help.html">Pomoc</a></li>
+              <li><a href="complaints.html">Reklamacje</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Usługi</h4>
+            <ul>
+              <li><a href="offers.html">Wakacje last minute</a></li>
+              <li><a href="offers.html">Wycieczki objazdowe</a></li>
+              <li><a href="offers.html">Wczasy all inclusive</a></li>
+              <li><a href="offers.html">Egzotyczne destynacje</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Kontakt</h4>
+            <ul>
+              <li><a href="mailto:info@mwaytravel.com">info@mwaytravel.com</a></li>
+              <li><a href="tel:+48123456789">+48 123 456 789</a></li>
+              <li>
+                <address>
+                  Mway Travel<br />
+                  ul. Floriańska 15<br />
+                  31-019 Kraków, Polska
+                </address>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="text-sm text-center">
+            &copy; 2025 Mway Travel. Wszelkie prawa zastrzeżone. | 
+            <a href="#">Polityka prywatności</a> | 
+            <a href="#">Warunki korzystania</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    
+    <script>
+        // Funkcje specyficzne dla dashboard
+        function loadDashboardData() {
+            // Załaduj dane użytkownika
+            fetch('/api/check-auth')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.logged_in) {
+                        document.getElementById('userEmail').textContent = data.email;
+                        document.getElementById('joinDate').textContent = new Date().toLocaleDateString('pl-PL');
+                    } else {
+                        window.location.href = '/login.html';
+                    }
+                });
+
+            // Załaduj status newslettera
+            fetch('/api/newsletter')
+                .then(response => response.json())
+                .then(data => {
+                    const statusElement = document.getElementById('newsletterStatus');
+                    const buttonElement = document.getElementById('newsletterBtn');
+                    
+                    if (data.subscribed) {
+                        statusElement.textContent = 'ZAPISANY';
+                        statusElement.style.color = '#28a745';
+                        buttonElement.textContent = 'Wypisz się';
+                        buttonElement.style.background = '#dc3545';
+                    } else {
+                        statusElement.textContent = 'NIE ZAPISANY';
+                        statusElement.style.color = '#dc3545';
+                        buttonElement.textContent = 'Zapisz się';
+                        buttonElement.style.background = '#28a745';
+                    }
+                });
+        }
+
+        function toggleNewsletter() {
+            fetch('/api/newsletter', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({action: 'toggle'})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    loadDashboardData(); // Odśwież dane
+                } else {
+                    alert('Błąd: ' + data.message);
+                }
+            });
+        }
+
+        // Załaduj dane przy starcie
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+        });
+    </script>
+</body>
+</html>

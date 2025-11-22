@@ -1,0 +1,20 @@
+runtime: python312
+handlers:
+  - url: /
+    static_files: index.html
+    upload: index.html
+
+  - url: /(.*\.(html|css|js|json|ico|jpg|png))
+    static_files: \1
+    upload: (.*\.(html|css|js|json|ico|jpg|png))
+
+  - url: /(.+)
+    static_files: \1
+    upload: (.+)
+
+  - url: .*
+    static_files: index.html
+    upload: index.html
+
+env_variables:
+  FLASK_ENV: "production"

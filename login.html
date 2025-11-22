@@ -150,4 +150,35 @@
         });
     </script>
 </body>
-</html>
+</html>\
+
+
+<!-- Dodaj do istniejącego login.html -->
+<form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Hasło" required>
+    <button type="submit">Zaloguj</button>
+</form>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email, password})
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = '/dashboard.html';
+        } else {
+            alert('Błąd: ' + data.message);
+        }
+    });
+});
+</script>
