@@ -21,93 +21,116 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="container">
-    <div class="logo">
-      <a href="index.html">
-        <img src="images/logo.png" alt="Mway Travel" />
-      </a>
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+
+    <!-- Przyciski dostępności -->
+    <div class="accessibility-buttons">
+        <button class="accessibility-btn" onclick="toggleHighContrast()" title="Wysoki kontrast">
+            <i class="fas fa-adjust"></i>
+            <span class="sr-only">Przełącz wysoki kontrast</span>
+        </button>
+        <button class="accessibility-btn" onclick="increaseTextSize()" title="Powiększ tekst">
+            <i class="fas fa-text-height"></i>
+            <span class="sr-only">Powiększ tekst</span>
+        </button>
+        <button class="accessibility-btn" onclick="decreaseTextSize()" title="Pomniejsz tekst">
+            <i class="fas fa-text-width"></i>
+            <span class="sr-only">Pomniejsz tekst</span>
+        </button>
+        <button class="accessibility-btn" onclick="resetAccessibility()" title="Resetuj ustawienia">
+            <i class="fas fa-undo"></i>
+            <span class="sr-only">Resetuj ustawienia dostępności</span>
+        </button>
     </div>
 
-    <div class="main-menu">
-      <ul>
-        <li>
-          <a href="index.html">Strona Główna</a>
-        </li>
-        <li>
-          <a href="about.html">O Nas</a>
-        </li>
-        <li>
-          <a href="contact.html">Kontakt</a>
-        </li>
-        <li>
-          <a href="offers.html">Oferty</a>
-        </li>
-        <li>
-          <!-- DYNAMICZNY PRZYCISK LOGOWANIA -->
-          <div id="authSection" style="display: flex; align-items: center;">
-            <a href="login.html" class="login-btn" id="loginBtn">
-              <i class="fas fa-user"></i> Zaloguj się
-            </a>
-            <div class="user-menu" id="userMenu" style="display: none; gap: 10px; align-items: center;">
-              <a href="dashboard.html" class="account-btn">
-                <i class="fas fa-user-circle"></i> Moje Konto
-              </a>
-              <button onclick="logout()" class="logout-btn">
-                <i class="fas fa-sign-out-alt"></i>
-              </button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="Mway Travel" />
+          </a>
+        </div>
 
-    <!-- Hamburger Button -->
-    <button class="hamburger-button">
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
-    </button>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <ul>
-        <li>
-          <a href="index.html">Strona Główna</a>
-        </li>
-        <li>
-          <a href="about.html">O Nas</a>
-        </li>
-        <li>
-          <a href="contact.html">Kontakt</a>
-        </li>
-        <li>
-          <a href="offers.html">Oferty</a>
-        </li>
-        <li>
-          <!-- DYNAMICZNY PRZYCISK DLA MOBILE -->
-          <div id="mobileAuthSection">
-            <a href="login.html" class="login-btn" id="mobileLoginBtn">
-              <i class="fas fa-user"></i> Zaloguj się
-            </a>
-            <div class="user-menu" id="mobileUserMenu" style="display: none; flex-direction: column; gap: 10px;">
-              <a href="dashboard.html" class="account-btn">
-                <i class="fas fa-user-circle"></i> Moje Konto
-              </a>
-              <button onclick="logout()" class="logout-btn">
-                <i class="fas fa-sign-out-alt"></i> Wyloguj
-              </button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Strona Główna</a>
+            </li>
+            <li>
+              <a href="about.html">O Nas</a>
+            </li>
+            <li>
+              <a href="contact.html">Kontakt</a>
+            </li>
+            <li>
+              <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <!-- DYNAMICZNY PRZYCISK LOGOWANIA -->
+              <div id="authSection" style="display: flex; align-items: center;">
+                <a href="login.html" class="login-btn" id="loginBtn">
+                  <i class="fas fa-user"></i> Zaloguj się
+                </a>
+                <div class="user-menu" id="userMenu" style="display: none; gap: 10px; align-items: center;">
+                  <a href="dashboard.html" class="account-btn">
+                    <i class="fas fa-user-circle"></i> Moje Konto
+                  </a>
+                  <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger-button">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </button>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+          <ul>
+            <li>
+              <a href="index.html">Strona Główna</a>
+            </li>
+            <li>
+              <a href="about.html">O Nas</a>
+            </li>
+            <li>
+              <a href="contact.html">Kontakt</a>
+            </li>
+            <li>
+              <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <!-- DYNAMICZNY PRZYCISK DLA MOBILE -->
+              <div id="mobileAuthSection">
+                <a href="login.html" class="login-btn" id="mobileLoginBtn">
+                  <i class="fas fa-user"></i> Zaloguj się
+                </a>
+                <div class="user-menu" id="mobileUserMenu" style="display: none; flex-direction: column; gap: 10px;">
+                  <a href="dashboard.html" class="account-btn">
+                    <i class="fas fa-user-circle"></i> Moje Konto
+                  </a>
+                  <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Wyloguj
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main-content">
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-heading text-xxl">
@@ -125,70 +148,70 @@
       </div>
     </section>
 
-<!-- Oferty -->
-<section class="offers">
-    <div class="container">
+    <!-- Oferty -->
+    <section class="offers">
+      <div class="container">
         <h2 class="text-xl text-center text-dark">Nasze najpopularniejsze oferty</h2>
         <p class="text-md text-center" style="margin-top: 15px; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">
-            Sprawdź nasze najlepiej oceniane wycieczki i wakacje last minute
+          Sprawdź nasze najlepiej oceniane wycieczki i wakacje last minute
         </p>
         <div class="offers-grid">
-            <!-- Oferta 1 -->
-            <div class="offer-card">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tropical Paradise" class="offer-img">
-                <div class="offer-content">
-                    <h3>Tropical Paradise - Bali</h3>
-                    <p>7 dni w raju na ziemi z all inclusive i wycieczkami po wyspie</p>
-                    <div class="offer-details">
-                        <span><i class="fas fa-calendar"></i> 7 dni</span>
-                        <span><i class="fas fa-user"></i> 2 osoby</span>
-                        <span><i class="fas fa-star"></i> 4.8</span>
-                    </div>
-                    <div class="offer-price">2 499 zł</div>
-                    <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
-                </div>
+          <!-- Oferta 1 -->
+          <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tropical Paradise - plaża na Bali z palmami kokosowymi i błękitnym oceanem" class="offer-img">
+            <div class="offer-content">
+              <h3>Tropical Paradise - Bali</h3>
+              <p>7 dni w raju na ziemi z all inclusive i wycieczkami po wyspie</p>
+              <div class="offer-details">
+                <span><i class="fas fa-calendar" aria-hidden="true"></i> 7 dni</span>
+                <span><i class="fas fa-user" aria-hidden="true"></i> 2 osoby</span>
+                <span><i class="fas fa-star" aria-hidden="true"></i> 4.8</span>
+              </div>
+              <div class="offer-price">2 499 zł</div>
+              <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
             </div>
-            
-            <!-- Oferta 2 -->
-            <div class="offer-card">
-                <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Greek Islands" class="offer-img">
-                <div class="offer-content">
-                    <h3>Wyspy Greckie - rejs</h3>
-                    <p>10-dniowy rejs po najpiękniejszych greckich wyspach z pełnym wyżywieniem</p>
-                    <div class="offer-details">
-                        <span><i class="fas fa-calendar"></i> 10 dni</span>
-                        <span><i class="fas fa-user"></i> 2 osoby</span>
-                        <span><i class="fas fa-star"></i> 4.9</span>
-                    </div>
-                    <div class="offer-price">3 199 zł</div>
-                    <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
-                </div>
+          </div>
+          
+          <!-- Oferta 2 -->
+          <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Wyspy Greckie - białe domki na klifie z widokiem na morze" class="offer-img">
+            <div class="offer-content">
+              <h3>Wyspy Greckie - rejs</h3>
+              <p>10-dniowy rejs po najpiękniejszych greckich wyspach z pełnym wyżywieniem</p>
+              <div class="offer-details">
+                <span><i class="fas fa-calendar" aria-hidden="true"></i> 10 dni</span>
+                <span><i class="fas fa-user" aria-hidden="true"></i> 2 osoby</span>
+                <span><i class="fas fa-star" aria-hidden="true"></i> 4.9</span>
+              </div>
+              <div class="offer-price">3 199 zł</div>
+              <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
             </div>
-            
-            <!-- Oferta 3 -->
-            <div class="offer-card">
-                <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Egypt Adventure" class="offer-img">
-                <div class="offer-content">
-                    <h3>Egipt - przygoda z historią</h3>
-                    <p>8 dni z przewodnikiem po najsłynniejszych zabytkach starożytnego Egiptu</p>
-                    <div class="offer-details">
-                        <span><i class="fas fa-calendar"></i> 8 dni</span>
-                        <span><i class="fas fa-user"></i> 2 osoby</span>
-                        <span><i class="fas fa-star"></i> 4.7</span>
-                    </div>
-                    <div class="offer-price">2 899 zł</div>
-                    <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
-                </div>
+          </div>
+          
+          <!-- Oferta 3 -->
+          <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Egipt - piramidy w Gizie na tle zachodzącego słońca" class="offer-img">
+            <div class="offer-content">
+              <h3>Egipt - przygoda z historią</h3>
+              <p>8 dni z przewodnikiem po najsłynniejszych zabytkach starożytnego Egiptu</p>
+              <div class="offer-details">
+                <span><i class="fas fa-calendar" aria-hidden="true"></i> 8 dni</span>
+                <span><i class="fas fa-user" aria-hidden="true"></i> 2 osoby</span>
+                <span><i class="fas fa-star" aria-hidden="true"></i> 4.7</span>
+              </div>
+              <div class="offer-price">2 899 zł</div>
+              <a href="offers.html" class="btn btn-primary">Zarezerwuj</a>
             </div>
+          </div>
         </div>
         
         <div class="text-center" style="margin-top: 40px;">
-            <a href="offers.html" class="btn btn-dark btn-large">
-                Zobacz wszystkie oferty <i class="fas fa-arrow-right"></i>
-            </a>
+          <a href="offers.html" class="btn btn-dark btn-large">
+            Zobacz wszystkie oferty <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <!-- Testimonials -->
     <section class="testimonials bg-primary">
@@ -215,7 +238,7 @@
 
           <div class="card">
             <p>
-              "Egipt z Mway Travel to była podróż życia. Przewodnik był niezwykle kompetentny, a program wycieczki idealnie zbalansowany między zwiedzaniem aa odpoczynkiem."
+              "Egipt z Mway Travel to była podróż życia. Przewodnik był niezwykle kompetentny, a program wycieczki idealnie zbalansowany między zwiedzaniem a odpoczynkiem."
             </p>
             <p>Maria Wiśniewska</p>
             <p>Entuzjastka historii</p>
@@ -239,8 +262,8 @@
               <p style="color: #ccc !important;">
                 Bądź na bieżąco z naszymi najnowszymi ofertami, wiadomościami i ekskluzywnymi promocjami na Twoją następną podróż.
               </p>
-              <form>
-                <input type="email" id="email" placeholder="Wpisz swój email" />
+              <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Wpisz swój email" aria-label="Adres email do newslettera" />
                 <button type="submit" class="btn btn-primary btn-block">
                   Zapisz się
                 </button>
@@ -256,19 +279,19 @@
           <div>
             <h4>Dla klientów</h4>
             <ul>
-                    <li><a href="login.html">Rezerwacje</a></li>
-                    <li><a href="insurance.html">Ubezpieczenia</a></li>
-                    <li><a href="help.html">Pomoc</a></li>
-                    <li><a href="complaints.html">Reklamacje</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Usługi</h4>
-                <ul>
-                    <li><a href="offers.html">Wakacje last minute</a></li>
-                    <li><a href="offers.html">Wycieczki objazdowe</a></li>
-                    <li><a href="offers.html">Wczasy all inclusive</a></li>
-                    <li><a href="offers.html">Egzotyczne destynacje</a></li>
+              <li><a href="booking.html">Rezerwacje</a></li>
+              <li><a href="insurance.html">Ubezpieczenia</a></li>
+              <li><a href="help.html">Pomoc</a></li>
+              <li><a href="complaints.html">Reklamacje</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Usługi</h4>
+            <ul>
+              <li><a href="offers.html">Wakacje last minute</a></li>
+              <li><a href="offers.html">Wycieczki objazdowe</a></li>
+              <li><a href="offers.html">Wczasy all inclusive</a></li>
+              <li><a href="offers.html">Egzotyczne destynacje</a></li>
             </ul>
           </div>
           <div>
@@ -278,11 +301,9 @@
               <li><a href="tel:+48123456789">+48 123 456 789</a></li>
               <li>
                 <address>
-                            <address>
-                                Mway Travel<br />
-                                ul. Floriańska 15<br />
-                                31-019 Kraków, Polska
-                            </address>
+                  Mway Travel<br />
+                  ul. Floriańska 15<br />
+                  31-019 Kraków, Polska
                 </address>
               </li>
             </ul>
@@ -299,5 +320,132 @@
     </footer>
 
     <script src="main.js"></script>
+    <script>
+        // Funkcje dostępności
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+            localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
+        }
+
+        function increaseTextSize() {
+            const currentSize = localStorage.getItem('textSize') || '1';
+            const newSize = Math.min(4, parseInt(currentSize) + 1);
+            setTextSize(newSize);
+        }
+
+        function decreaseTextSize() {
+            const currentSize = localStorage.getItem('textSize') || '1';
+            const newSize = Math.max(1, parseInt(currentSize) - 1);
+            setTextSize(newSize);
+        }
+
+        function setTextSize(size) {
+            // Usuń poprzednie klasy
+            document.body.classList.remove('text-scale-1', 'text-scale-2', 'text-scale-3', 'text-scale-4');
+            
+            // Dodaj nową klasę
+            document.body.classList.add(`text-scale-${size}`);
+            localStorage.setItem('textSize', size.toString());
+        }
+
+        function resetAccessibility() {
+            document.body.classList.remove('high-contrast', 'text-scale-1', 'text-scale-2', 'text-scale-3', 'text-scale-4');
+            localStorage.removeItem('highContrast');
+            localStorage.removeItem('textSize');
+        }
+
+        // Funkcja wylogowania
+        function logout() {
+            if (confirm('Czy na pewno chcesz się wylogować?')) {
+                fetch('/api/logout', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = 'index.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Błąd wylogowania:', error);
+                    window.location.href = 'index.html';
+                });
+            }
+        }
+
+        // Załaduj ustawienia dostępności przy starcie
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wysoki kontrast
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.classList.add('high-contrast');
+            }
+            
+            // Rozmiar tekstu
+            const savedSize = localStorage.getItem('textSize');
+            if (savedSize) {
+                setTextSize(parseInt(savedSize));
+            }
+
+            // Sprawdź status logowania i zaktualizuj UI
+            fetch('/api/check-auth')
+                .then(response => response.json())
+                .then(data => {
+                    const loginBtn = document.getElementById('loginBtn');
+                    const userMenu = document.getElementById('userMenu');
+                    const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+                    const mobileUserMenu = document.getElementById('mobileUserMenu');
+                    
+                    if (data.logged_in) {
+                        // Użytkownik zalogowany - pokaż "Moje Konto"
+                        if (loginBtn) loginBtn.style.display = 'none';
+                        if (userMenu) userMenu.style.display = 'flex';
+                        if (mobileLoginBtn) mobileLoginBtn.style.display = 'none';
+                        if (mobileUserMenu) mobileUserMenu.style.display = 'flex';
+                    } else {
+                        // Użytkownik niezalogowany - pokaż "Zaloguj się"
+                        if (loginBtn) loginBtn.style.display = 'flex';
+                        if (userMenu) userMenu.style.display = 'none';
+                        if (mobileLoginBtn) mobileLoginBtn.style.display = 'flex';
+                        if (mobileUserMenu) mobileUserMenu.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Błąd sprawdzania auth:', error);
+                });
+
+            // Newsletter form
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('newsletterEmail').value;
+                    
+                    if (!email) {
+                        alert('Proszę wpisać adres email');
+                        return;
+                    }
+                    
+                    fetch('/api/newsletter', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({email: email, action: 'subscribe'})
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(data.message);
+                        } else {
+                            alert('Błąd: ' + data.message);
+                        }
+                        newsletterForm.reset();
+                    })
+                    .catch(error => {
+                        alert('Wystąpił błąd. Spróbuj ponownie.');
+                        console.error('Błąd newslettera:', error);
+                    });
+                });
+            }
+        });
+    </script>
   </body>
 </html>

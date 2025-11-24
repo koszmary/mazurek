@@ -129,30 +129,47 @@
       </div>
     </nav>
 
-    <!-- Sekcja Logowania -->
+    <!-- Sekcja Rejestracji -->
     <section class="auth-section">
         <div class="container">
             <div class="auth-container">
                 <div class="auth-card">
-                    <h1 class="text-center">Zaloguj się</h1>
-                    <form id="loginForm">
+                    <h1 class="text-center">Zarejestruj się</h1>
+                    <form id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Imię</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nazwisko</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="password">Hasło</label>
-                            <input type="password" id="password" name="password" required>
+                            <label for="phone">Telefon (opcjonalnie)</label>
+                            <input type="tel" id="phone" name="phone">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block" id="loginButton">
-                            <i class="fas fa-sign-in-alt"></i> Zaloguj się
+                        <div class="form-group">
+                            <label for="password">Hasło</label>
+                            <input type="password" id="password" name="password" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Potwierdź hasło</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="registerButton">
+                            <i class="fas fa-user-plus"></i> Zarejestruj się
                         </button>
                     </form>
                     <div class="auth-links">
-                        <p>Nie masz konta? <a href="register.html">Zarejestruj się</a></p>
-                        <p><a href="#">Zapomniałeś hasła?</a></p>
+                        <p>Masz już konto? <a href="/login">Zaloguj się</a></p>
                     </div>
-                    <div id="loginMessage" style="display: none; margin-top: 20px; padding: 15px; border-radius: 5px; text-align: center;"></div>
+                    <div id="registerMessage" style="display: none; margin-top: 20px; padding: 15px; border-radius: 5px; text-align: center;"></div>
                 </div>
             </div>
         </div>
@@ -219,56 +236,77 @@
     <script src="main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('loginForm');
-            const loginButton = document.getElementById('loginButton');
-            const messageDiv = document.getElementById('loginMessage');
+            const registerForm = document.getElementById('registerForm');
+            const registerButton = document.getElementById('registerButton');
+            const messageDiv = document.getElementById('registerMessage');
             
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(e) {
+            if (registerForm) {
+                registerForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
+                    const firstName = document.getElementById('firstName').value;
+                    const lastName = document.getElementById('lastName').value;
                     const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
                     const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
                     
-                    if (!email || !password) {
-                        showMessage('Proszę wypełnić wszystkie pola', 'error');
+                    // Walidacja
+                    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+                        showMessage('Wszystkie pola są wymagane', 'error');
                         return;
                     }
                     
-                    const originalText = loginButton.innerHTML;
-                    loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logowanie...';
-                    loginButton.disabled = true;
+                    if (password !== confirmPassword) {
+                        showMessage('Hasła nie są identyczne', 'error');
+                        return;
+                    }
                     
-                    fetch('/api/login', {
+                    if (password.length < 6) {
+                        showMessage('Hasło musi mieć co najmniej 6 znaków', 'error');
+                        return;
+                    }
+                    
+                    // Zmień tekst przycisku na ładowanie
+                    const originalText = registerButton.innerHTML;
+                    registerButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Rejestracja...';
+                    registerButton.disabled = true;
+                    
+                    // Wyślij żądanie rejestracji
+                    fetch('/api/register', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
+                            firstName: firstName,
+                            lastName: lastName,
                             email: email,
+                            phone: phone,
                             password: password
                         })
                     })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            showMessage('Logowanie udane! Przekierowujemy...', 'success');
+                            showMessage('Rejestracja udana! Przekierowujemy...', 'success');
                             
+                            // Przekieruj do dashboard po krótkim opóźnieniu
                             setTimeout(() => {
                                 window.location.href = '/dashboard';
-                            }, 1000);
+                            }, 1500);
                             
                         } else {
-                            showMessage(data.message || 'Błąd logowania', 'error');
-                            loginButton.innerHTML = originalText;
-                            loginButton.disabled = false;
+                            showMessage(data.message || 'Błąd rejestracji', 'error');
+                            registerButton.innerHTML = originalText;
+                            registerButton.disabled = false;
                         }
                     })
                     .catch(error => {
-                        console.error('Błąd logowania:', error);
-                        showMessage('Wystąpił błąd podczas logowania. Spróbuj ponownie.', 'error');
-                        loginButton.innerHTML = originalText;
-                        loginButton.disabled = false;
+                        console.error('Błąd rejestracji:', error);
+                        showMessage('Wystąpił błąd podczas rejestracji. Spróbuj ponownie.', 'error');
+                        registerButton.innerHTML = originalText;
+                        registerButton.disabled = false;
                     });
                 });
             }

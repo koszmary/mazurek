@@ -1,45 +1,132 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rezerwacja - Mway Travel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mway Travel - Biuro Podróży</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+
+    <!-- Przyciski dostępności -->
+    <div class="accessibility-buttons">
+        <button class="accessibility-btn" onclick="toggleHighContrast()" title="Wysoki kontrast">
+            <i class="fas fa-adjust"></i>
+            <span class="sr-only">Przełącz wysoki kontrast</span>
+        </button>
+        <button class="accessibility-btn" onclick="increaseTextSize()" title="Powiększ tekst">
+            <i class="fas fa-text-height"></i>
+            <span class="sr-only">Powiększ tekst</span>
+        </button>
+        <button class="accessibility-btn" onclick="decreaseTextSize()" title="Pomniejsz tekst">
+            <i class="fas fa-text-width"></i>
+            <span class="sr-only">Pomniejsz tekst</span>
+        </button>
+        <button class="accessibility-btn" onclick="resetAccessibility()" title="Resetuj ustawienia">
+            <i class="fas fa-undo"></i>
+            <span class="sr-only">Resetuj ustawienia dostępności</span>
+        </button>
+    </div>
+
+    <!-- Navbar -->
     <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="Mway Travel" />
-                </a>
-            </div>
-            <div class="main-menu">
-                <ul>
-                    <li><a href="index.html">Strona Główna</a></li>
-                    <li><a href="about.html">O Nas</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
-                    <li><a href="offers.html">Oferty</a></li>
-                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
-                </ul>
-            </div>
-            <button class="hamburger-button">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </button>
-            <div class="mobile-menu">
-                <ul>
-                    <li><a href="index.html">Strona Główna</a></li>
-                    <li><a href="about.html">O Nas</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
-                    <li><a href="offers.html">Oferty</a></li>
-                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Zaloguj się</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="Mway Travel" />
+          </a>
         </div>
+
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Strona Główna</a>
+            </li>
+            <li>
+              <a href="about.html">O Nas</a>
+            </li>
+            <li>
+              <a href="contact.html">Kontakt</a>
+            </li>
+            <li>
+              <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <!-- DYNAMICZNY PRZYCISK LOGOWANIA -->
+              <div id="authSection" style="display: flex; align-items: center;">
+                <a href="login.html" class="login-btn" id="loginBtn">
+                  <i class="fas fa-user"></i> Zaloguj się
+                </a>
+                <div class="user-menu" id="userMenu" style="display: none; gap: 10px; align-items: center;">
+                  <a href="dashboard.html" class="account-btn">
+                    <i class="fas fa-user-circle"></i> Moje Konto
+                  </a>
+                  <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger-button">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </button>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+          <ul>
+            <li>
+              <a href="index.html">Strona Główna</a>
+            </li>
+            <li>
+              <a href="about.html">O Nas</a>
+            </li>
+            <li>
+              <a href="contact.html">Kontakt</a>
+            </li>
+            <li>
+              <a href="offers.html">Oferty</a>
+            </li>
+            <li>
+              <!-- DYNAMICZNY PRZYCISK DLA MOBILE -->
+              <div id="mobileAuthSection">
+                <a href="login.html" class="login-btn" id="mobileLoginBtn">
+                  <i class="fas fa-user"></i> Zaloguj się
+                </a>
+                <div class="user-menu" id="mobileUserMenu" style="display: none; flex-direction: column; gap: 10px;">
+                  <a href="dashboard.html" class="account-btn">
+                    <i class="fas fa-user-circle"></i> Moje Konto
+                  </a>
+                  <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Wyloguj
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <section class="booking-section">
